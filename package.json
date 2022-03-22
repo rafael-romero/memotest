@@ -1,0 +1,22 @@
+{
+  "name": "memotest",
+  "version": "1.0.0",
+  "description": "juego del memotest",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafael-romero/memotest.git"
+  },
+  "author": "rafael romero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafael-romero/memotest/issues"
+  },
+  "homepage": "https://github.com/rafael-romero/memotest#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}

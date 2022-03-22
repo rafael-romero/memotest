@@ -1,1 +1,5 @@
-# memotest
+#memotest
+
+instalacion
+***********
+"npm install"
