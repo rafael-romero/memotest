@@ -1,0 +1,71 @@
+main{
+    margin-left: 25px;
+}
+
+.borde-carta{
+    border: 15px solid darkblue;
+}
+
+#btn-jugar{
+    font-size: xx-large;
+}
+
+.contenedor{
+    display: flex;
+}
+
+.orden0{
+    order: 0;
+}
+
+.orden1{
+    order: 1;
+}
+
+.orden2{
+    order: 2;
+}
+
+.orden3{
+    order: 3;
+}
+
+.orden4{
+    order: 4;
+}
+
+.orden5{
+    order: 5;
+}
+
+.orden6{
+    order: 6;
+}
+
+.orden7{
+    order: 7;
+}
+
+.orden8{
+    order: 8;
+}
+
+.orden9{
+    order: 9;
+}
+
+.orden10{
+    order: 10;
+}
+
+.orden11{
+    order: 11;
+}
+
+.oculto{
+    display: none;
+}
+
+body{
+    background-image: url(img/fondo-boca.jpg);
+}
