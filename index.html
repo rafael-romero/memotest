@@ -5,13 +5,89 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Memotest</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='memotest.css'>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel='stylesheet' type='text/css' media='screen' href='memotest.css'>
 </head>
 
 <body>
-    
-
+    <header>
+        <div class="d-grid gap-1 col-3 mx-auto">
+            <button class="btn btn-success btn-lg" type="button" id="btn-jugar">Jugar</button>
+        </div>
+        <div class="alert alert-success col-4 d-flex align-items-center mx-auto" role="alert" id="cartel-de-mensajes">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/>
+                <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                  </symbol>
+            </svg>
+            <div id="mensajesAlUsuario"></div>
+        </div>
+    </header>
+    <main>
+        <div class="row row-cols-1 row-cols-md-6 g-4 contenedor">
+            <div class="col tarjetas" id="tarjeta0">
+                <div class="card text-center border-dark border-4" style="width: 10rem;">
+                   <img src="img/palermo.png" class="card-img-top" alt="palermo">
+                </div>
+            </div>
+            <div class="col tarjetas" id="tarjeta1">
+                <div class="card text-center border-dark border-4" style="width: 10rem;">
+                    <img src="img/palermo.png" class="card-img-top" alt="palermo">
+                </div>
+            </div>
+            <div class="col tarjetas" id="tarjeta2">
+                <div class="card text-center border-dark border-4" style="width: 10rem;">
+                    <img src="img/guillermo.png" class="card-img-top" alt="guillermo">
+                </div>
+            </div>
+            <div class="col tarjetas" id="tarjeta3">
+                <div class="card text-center border-dark border-4" style="width: 10rem;">
+                    <img src="img/guillermo.png" class="card-img-top" alt="guillermo">
+                </div>
+            </div>
+            <div class="col tarjetas" id="tarjeta4">
+                <div class="card text-center border-dark border-4" style="width: 10rem;">
+                    <img src="img/riquelme.png" class="card-img-top" alt="riquelme">
+                </div>
+            </div>
+            <div class="col tarjetas" id="tarjeta5">
+                <div class="card text-center border-dark border-4" style="width: 10rem;">
+                    <img src="img/riquelme.png" class="card-img-top" alt="riquelme">
+                </div>
+            </div>
+            <div class="col tarjetas" id="tarjeta6">
+                <div class="card text-center border-dark border-4" style="width: 10rem;">
+                    <img src="img/diego.png" class="card-img-top" alt="diego">
+                </div>
+            </div>
+            <div class="col tarjetas" id="tarjeta7">
+                <div class="card text-center border-dark border-4" style="width: 10rem;">
+                    <img src="img/diego.png" class="card-img-top" alt="diego">
+                </div>
+            </div>
+            <div class="col tarjetas" id="tarjeta8">
+                <div class="card text-center border-dark border-4" style="width: 10rem;">
+                    <img src="img/cordoba.png" class="card-img-top" alt="cordoba">
+                </div>
+            </div>
+            <div class="col tarjetas" id="tarjeta9">
+                <div class="card text-center border-dark border-4" style="width: 10rem;">
+                    <img src="img/cordoba.png" class="card-img-top" alt="cordoba">
+                </div>
+            </div>
+            <div class="col tarjetas" id="tarjeta10">
+                <div class="card text-center border-dark border-4" style="width: 10rem;">
+                    <img src="img/carlitos.png" class="card-img-top" alt="carlitos">
+                </div>
+            </div>
+            <div class="col tarjetas" id="tarjeta11">
+                <div class="col" >
+                <div class="card text-center border-dark border-4" style="width: 10rem;">
+                    <img src="img/carlitos.png" class="card-img-top" alt="carlitos">
+                </div>
+            </div>
+        </div>
+    </main>
     <script src='memotest.js'></script>
 </body>
 </html>
