@@ -1,52 +1,53 @@
 let primeraCartaSeleccionada = false;
-let cantidadDeCartasPares = 0;
+let cantidadDeCartasParesEncontradas = 0;
 let primeraCarta;
-const DOS_SEGUNDOS = 2000;
+const DOS_SEGUNDOS_EN_MS = 2000;
+const NUMEROS_PARES_PARA_GANAR = 6;
 
 function activarBotonJugar() {
   $botonJugar.classList.remove("disabled");
 };
 
 function habilitarCarta(carta) {
-  const padre = carta.parentNode;
-  const abuelo = padre.parentNode;
+  const nodoPadreDeCarta = carta.parentNode;
+  const nodoAbueloDeCarta = nodoPadreDeCarta.parentNode;
   carta.style.pointerEvents = "auto";
-  padre.style.pointerEvents = "auto";
-  abuelo.style.pointerEvents = "auto";
+  nodoPadreDeCarta.style.pointerEvents = "auto";
+  nodoAbueloDeCarta.style.pointerEvents = "auto";
 };
 
-function taparCartas(carta) {
+function taparCarta(carta) {
   carta.src = "img/reverso-carta.png";
 };
 
 function compararCartas(cartaUno, cartaDos) {
   if (cartaUno.alt !== cartaDos.alt) {
-    setTimeout(taparCartas, DOS_SEGUNDOS, cartaUno);
-    setTimeout(taparCartas, DOS_SEGUNDOS, cartaDos);
+    setTimeout(taparCarta, DOS_SEGUNDOS_EN_MS, cartaUno);
+    setTimeout(taparCarta, DOS_SEGUNDOS_EN_MS, cartaDos);
     setTimeout(
-      mostrarMensajePorPantalla,
-      DOS_SEGUNDOS / 2,
+      mostrarMensaje,
+      DOS_SEGUNDOS_EN_MS / 2,
       "Intenta de Nuevo!!!"
     );
-    setTimeout(habilitarCarta, DOS_SEGUNDOS, cartaUno);
-    setTimeout(habilitarCarta, DOS_SEGUNDOS, cartaDos);
+    setTimeout(habilitarCarta, DOS_SEGUNDOS_EN_MS, cartaUno);
+    setTimeout(habilitarCarta, DOS_SEGUNDOS_EN_MS, cartaDos);
   } else {
-    cantidadDeCartasPares++;
+    cantidadDeCartasParesEncontradas++;
     setTimeout(
-      mostrarMensajePorPantalla,
-      DOS_SEGUNDOS / 2,
-      "Muy Bien, as acertado!!!"
+      mostrarMensaje,
+      DOS_SEGUNDOS_EN_MS / 2,
+      "Muy Bien, has acertado!!!"
     );
   };
-  if (6 === cantidadDeCartasPares) {
+  if (NUMEROS_PARES_PARA_GANAR === cantidadDeCartasParesEncontradas) {
     setTimeout(
-      mostrarMensajePorPantalla,
-      DOS_SEGUNDOS * 2,
+      mostrarMensaje,
+      DOS_SEGUNDOS_EN_MS * 2,
       "Felicitaciones, ganaste el juego!!!"
     );
-    setTimeout(activarBotonJugar, DOS_SEGUNDOS * 2);
+    setTimeout(activarBotonJugar, DOS_SEGUNDOS_EN_MS * 2);
   };
-  setTimeout(activarTocarCartas, DOS_SEGUNDOS);
+  setTimeout(activarTocarCartas, DOS_SEGUNDOS_EN_MS);
 };
 
 function desactivarTocarCartas() {
@@ -56,11 +57,11 @@ function desactivarTocarCartas() {
 };
 
 function anularCarta(carta) {
-    const padre = carta.parentNode;
-    const abuelo = padre.parentNode;
+    const nodoPadreDeCarta = carta.parentNode;
+    const nodoAbueloDeCarta = nodoPadreDeCarta.parentNode;
     carta.style.pointerEvents = "none";
-    padre.style.pointerEvents = "none";
-    abuelo.style.pointerEvents = "none";
+    nodoPadreDeCarta.style.pointerEvents = "none";
+    nodoAbueloDeCarta.style.pointerEvents = "none";
 };
 
 function mostrarCarta(carta) {
@@ -90,27 +91,27 @@ function activarTocarCartas() {
 };
 
 function mezclarCartasAleatoriamente() {
-  const ordenCartas = [];
+  const ordenDeLasCartas = [];
   const NUMERO_DE_CARTAS = 12;
   let numero = "";
-  while (ordenCartas.length < NUMERO_DE_CARTAS) {
+  while (ordenDeLasCartas.length < NUMERO_DE_CARTAS) {
     numero = Math.floor(Math.random() * NUMERO_DE_CARTAS);
-    if (!ordenCartas.includes(numero)) {
-      ordenCartas.push(numero);
+    if (!ordenDeLasCartas.includes(numero)) {
+      ordenDeLasCartas.push(numero);
     };
   };
   document.querySelectorAll(".tarjetas").forEach(function ($tarjeta, index) {
-    $tarjeta.classList.add(`orden${ordenCartas[index]}`);
+    $tarjeta.classList.add(`orden${ordenDeLasCartas[index]}`);
     const tarjeta = $tarjeta.querySelector("div > img");
     tarjeta.src = "img/reverso-carta.png";
   });
 };
 
-function mostrarMensajePorPantalla(mensaje) {
+function mostrarMensaje(mensaje) {
   document.querySelector("#mensajesAlUsuario").textContent = mensaje;
   setTimeout(function () {
     document.querySelector("#mensajesAlUsuario").textContent = "";
-  }, DOS_SEGUNDOS);
+  }, DOS_SEGUNDOS_EN_MS);
 };
 
 function desarrollarJuego() {
@@ -130,7 +131,7 @@ function habilitarTodasLasCartas() {
 
 function reiniciarVariables() {
   primeraCartaSeleccionada = false;
-  cantidadDeCartasPares = 0;
+  cantidadDeCartasParesEncontradas = 0;
 };
 
 const $botonJugar = document.querySelector("#btn-jugar");
@@ -139,7 +140,7 @@ $botonJugar.onclick = function () {
   habilitarTodasLasCartas();
   desactivarBotonJugar();
   desarrollarJuego();
-  mostrarMensajePorPantalla("Buen Juego!!!");
+  mostrarMensaje("Buen Juego!!!");
 };
 
-mostrarMensajePorPantalla("Bienvenido, que disfrute el juego!!!");
+mostrarMensaje("Bienvenido, que disfrute el juego!!!");
